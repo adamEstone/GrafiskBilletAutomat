@@ -36,8 +36,7 @@ import javax.swing.JFrame;
  */
 public class MitJPanel extends javax.swing.JPanel {
     
-    private static final DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-    private static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+    
 
 	private int mouseXpos;
 	private int mouseYpos;
@@ -48,8 +47,7 @@ public class MitJPanel extends javax.swing.JPanel {
 
 		initComponents(); //interface components
 
-                Date date = new Date();
-                System.out.println(sdf.format(date));
+                
                 
 		int coinAreaOffsetX=400;
 		int coinAreaOffsetY=200;
@@ -412,7 +410,6 @@ public class MitJPanel extends javax.swing.JPanel {
   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 		// TODO add your handling code here:
 		jButton1.setText("Sup");
-
 		repaint();
   }//GEN-LAST:event_jButton1ActionPerformed
 
