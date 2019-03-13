@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Adam
+ * @author Adam OG MADS
  */
 public class GrafiskBilletAutomat {
     
