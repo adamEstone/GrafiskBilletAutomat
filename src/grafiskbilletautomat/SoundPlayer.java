@@ -16,10 +16,6 @@ import javax.sound.sampled.Clip;
  */
 public class SoundPlayer {
     
-    	//Sound files
-	String CoinInSound = "CoinIn.wav";
-	String CoinLostSound = "CoinLost.wav";
-        String CoinOutSound = "CoinOut.wav";
 
 	public static void play(String SoundName) {
 		try {
