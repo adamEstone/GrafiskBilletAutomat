@@ -1,14 +1,7 @@
 
 package grafiskbilletautomat;
 
-//Time and date Import
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Date;
-
+import javax.swing.JFrame;
 //Grapical Import
 import java.awt.Graphics;
 import java.awt.Cursor;
@@ -18,21 +11,12 @@ import java.awt.Toolkit;
 import java.awt.image.MemoryImageSource;
 import java.util.ArrayList;
 
-//Sound and IO Import
-import java.io.File;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.swing.JFrame;
-//
 
 /**
  *
  * @author Adam Aron Edelsten
  */
 public class MitJPanel extends javax.swing.JPanel {
-    
-
 
 	private int mouseXpos;
 	private int mouseYpos;
@@ -42,8 +26,6 @@ public class MitJPanel extends javax.swing.JPanel {
 	public MitJPanel() { // Class constructor run 
 
 		initComponents(); //interface components
-
-                
                 
 		int coinAreaOffsetX=400;
 		int coinAreaOffsetY=200;
@@ -380,27 +362,6 @@ public class MitJPanel extends javax.swing.JPanel {
 /////////////////////////////////////////
 	
 	
-	//Sound files
-	String CoinInSound = "CoinIn.wav";
-	String CoinLostSound = "lel.wav";
-
-	private void playSound(String SoundName) {
-		try {
-			
-			File m = new File(SoundName).getAbsoluteFile();
-			
-			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(m);
-
-			Clip clip = AudioSystem.getClip();
-			clip.open(audioInputStream);
-			clip.start();
-			
-		} catch (Exception e) {
-	
-			e.printStackTrace();
-			
-		}
-	}
 
 
   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -431,7 +392,7 @@ public class MitJPanel extends javax.swing.JPanel {
 
 		mouseXpos = evt.getX();
 		mouseYpos = evt.getY();
-
+                
 		repaint();
 
   }//GEN-LAST:event_MUSDRAGGED
@@ -469,9 +430,10 @@ public class MitJPanel extends javax.swing.JPanel {
 
 				jTextField2.setText(String.valueOf(balance));
 
-				playSound(CoinInSound);
+				SoundPlayer.play("CoinIn.wav");
 			}else{
-				playSound(CoinLostSound);
+				SoundPlayer.play("CoinLost.wav");
+                                
 			}
 		}
 
@@ -521,13 +483,13 @@ public class MitJPanel extends javax.swing.JPanel {
 		
 		IndtastKodePanel panel = new IndtastKodePanel();        // opret panelet
 
-		JFrame adminVindue = new JFrame("IndtastKodePanel");    // opret et vindue på skærmen
-		adminVindue.add( panel );                          // vis panelet i vinduet
+		JFrame IndtastKodePanelVindue = new JFrame("IndtastKodePanel");    // opret et vindue på skærmen
+		IndtastKodePanelVindue.add( panel );                          // vis panelet i vinduet
 
-		adminVindue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // reagér på luk
-		adminVindue.pack();                       // sæt vinduets størrelse
-		adminVindue.setResizable(false);
-		adminVindue.setVisible(true);                      // åbn vinduet
+		IndtastKodePanelVindue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // reagér på luk
+		IndtastKodePanelVindue.pack();                       // sæt vinduets størrelse
+		IndtastKodePanelVindue.setResizable(false);
+		IndtastKodePanelVindue.setVisible(true);                      // åbn vinduet
 	  
 		
   }//GEN-LAST:event_AdminMenu

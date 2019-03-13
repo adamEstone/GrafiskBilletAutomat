@@ -46,7 +46,6 @@ public class IndtastKodePanel extends javax.swing.JPanel {
         jPasswordField1.setEditable(false);
         jPasswordField1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordField1.setText("1234");
         jPasswordField1.setAutoscrolls(false);
         jPasswordField1.setVerifyInputWhenFocusTarget(false);
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
@@ -190,7 +189,7 @@ public class IndtastKodePanel extends javax.swing.JPanel {
                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
                 .addContainerGap())
@@ -212,46 +211,59 @@ public class IndtastKodePanel extends javax.swing.JPanel {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         typedPass += "1";        // TODO add your handling code here:
         jPasswordField1.setText(typedPass);
+        SoundPlayer.play("Beep.wav");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         typedPass += "2";        // TODO add your handling code here:
         jPasswordField1.setText(typedPass);
+        SoundPlayer.play("Beep.wav");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         typedPass += "3";        // TODO add your handling code here:
         jPasswordField1.setText(typedPass);
+        SoundPlayer.play("Beep.wav");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         typedPass += "4";        // TODO add your handling code here:
         jPasswordField1.setText(typedPass);
+        SoundPlayer.play("Beep.wav");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         typedPass += "6";        // TODO add your handling code here:
         jPasswordField1.setText(typedPass);
+        SoundPlayer.play("Beep.wav");
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         typedPass += "8";        // TODO add your handling code here:
         jPasswordField1.setText(typedPass);
+        SoundPlayer.play("Beep.wav");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         typedPass += "9";        // TODO add your handling code here:
         jPasswordField1.setText(typedPass);
+        SoundPlayer.play("Beep.wav");
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         typedPass = "";        // TODO add your handling code here:
         jPasswordField1.setText(typedPass);
+        SoundPlayer.play("Beep.wav");
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        System.out.println("HELLOOOOOOOOOOOO");
+        
+        if(typedPass.equals(password)){
+            System.out.println("correct!");
+            SoundPlayer.play("Beep.wav");
+        }else{
+            SoundPlayer.play("Error.wav");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

@@ -23,7 +23,7 @@ public class GrafiskBilletAutomat {
 		vindue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // reagér på luk
 		vindue.pack();                       // sæt vinduets størrelse
 		vindue.setResizable(false);
-		vindue.setVisible(true);                      // åbn vinduet
+		vindue.setVisible(true);// åbn vinduet
 	  
 	}
 
