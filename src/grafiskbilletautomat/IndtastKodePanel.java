@@ -10,7 +10,7 @@ package grafiskbilletautomat;
  * @author Adam
  */
 public class IndtastKodePanel extends javax.swing.JPanel {
-
+    String Password = "1234";
     String typedPass = "";
 
     /**
@@ -203,6 +203,7 @@ public class IndtastKodePanel extends javax.swing.JPanel {
 
   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       System.out.println(typedPass);
+     if(typedPass  == Password){System.out.println("YAY");}
   }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
