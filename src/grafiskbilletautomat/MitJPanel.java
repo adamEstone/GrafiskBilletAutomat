@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package grafiskbilletautomat;
 
 //Time and date Import
@@ -36,7 +32,7 @@ import javax.swing.JFrame;
  */
 public class MitJPanel extends javax.swing.JPanel {
     
-    
+
 
 	private int mouseXpos;
 	private int mouseYpos;
@@ -523,9 +519,9 @@ public class MitJPanel extends javax.swing.JPanel {
     // TODO add your handling code here:
 		System.out.println("hej");
 		
-		AdminPanel panel = new AdminPanel();        // opret panelet
+		IndtastKodePanel panel = new IndtastKodePanel();        // opret panelet
 
-		JFrame adminVindue = new JFrame("AdminMenu");    // opret et vindue på skærmen
+		JFrame adminVindue = new JFrame("IndtastKodePanel");    // opret et vindue på skærmen
 		adminVindue.add( panel );                          // vis panelet i vinduet
 
 		adminVindue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // reagér på luk
