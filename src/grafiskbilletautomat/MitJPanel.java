@@ -48,6 +48,9 @@ public class MitJPanel extends javax.swing.JPanel {
 
 		initComponents(); //interface components
 
+                Date date = new Date();
+                System.out.println(sdf.format(date));
+                
 		int coinAreaOffsetX=400;
 		int coinAreaOffsetY=200;
 		
