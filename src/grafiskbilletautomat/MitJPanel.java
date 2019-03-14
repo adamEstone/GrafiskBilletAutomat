@@ -32,7 +32,7 @@ public class MitJPanel extends javax.swing.JPanel {
     TimerTask task = new TimerTask(){
     public void run(){
         //set time in the panel
-        jLabel6.setText(billetAutomatKlasse.getTime());
+        lblTiden.setText(billetAutomatKlasse.getTime());
         updateVisualPrices();
         }
     };
@@ -75,9 +75,9 @@ public class MitJPanel extends javax.swing.JPanel {
     private void updateVisualPrices(){
     
     //update prices
-         jLabel10.setText(String.valueOf(billetAutomatKlasse.voksenPris)+ " kr.");
-         jLabel11.setText(String.valueOf(billetAutomatKlasse.børnePris)+ " kr.");
-         jLabel12.setText(String.valueOf(billetAutomatKlasse.cykelPris)+ " kr.");
+         lblVoksenPris.setText(String.valueOf(billetAutomatKlasse.voksenPris)+ " kr.");
+         lblBarnPris.setText(String.valueOf(billetAutomatKlasse.børnePris)+ " kr.");
+         lblCykelPris.setText(String.valueOf(billetAutomatKlasse.cykelPris)+ " kr.");
     
     }
 
@@ -121,65 +121,77 @@ public class MitJPanel extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
-        jButton1 = new javax.swing.JButton();
+        btnKøb = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
+        btnVoksenPlus = new javax.swing.JButton();
+        btnVoksenMinus = new javax.swing.JButton();
+        txtBalance = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        btnBarnMinus = new javax.swing.JButton();
+        btnBarnPlus = new javax.swing.JButton();
+        btnCykelMinus = new javax.swing.JButton();
+        btnCykelPlus = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jTextField3 = new javax.swing.JTextField();
+        txtTotalPris = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel7 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblAdminMenu = new javax.swing.JLabel();
+        btnSletAlt = new javax.swing.JButton();
+        lblVoksenPris = new javax.swing.JLabel();
+        lblBarnPris = new javax.swing.JLabel();
+        lblCykelPris = new javax.swing.JLabel();
+        lblTiden = new javax.swing.JLabel();
         jButton14 = new javax.swing.JButton();
 
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter()
+        {
+            public void mouseDragged(java.awt.event.MouseEvent evt)
+            {
                 MUSDRAGGED(evt);
             }
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
+            public void mouseMoved(java.awt.event.MouseEvent evt)
+            {
                 musFlyttet(evt);
             }
         });
-        addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
+        addFocusListener(new java.awt.event.FocusAdapter()
+        {
+            public void focusGained(java.awt.event.FocusEvent evt)
+            {
                 FocusGainedAndUpdatePrices(evt);
             }
         });
-        addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 MusTrykkeIJframe(evt);
             }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
                 TRYKKETNED(evt);
             }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
+            public void mouseReleased(java.awt.event.MouseEvent evt)
+            {
                 MUSSLUPPET(evt);
             }
         });
 
-        jButton1.setForeground(new java.awt.Color(248, 24, 24));
-        jButton1.setMnemonic('H');
-        jButton1.setText("Køb");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        btnKøb.setForeground(new java.awt.Color(248, 24, 24));
+        btnKøb.setMnemonic('H');
+        btnKøb.setText("Køb");
+        btnKøb.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnKøbActionPerformed(evt);
             }
         });
 
@@ -187,61 +199,75 @@ public class MitJPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(27, 112, 0));
         jLabel1.setText("Køb Billeter til enkeltrejse");
 
-        jButton3.setLabel("+1");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+        btnVoksenPlus.setLabel("+1");
+        btnVoksenPlus.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnVoksenPlusActionPerformed(evt);
             }
         });
 
-        jButton4.setText("-1");
-        jButton4.setEnabled(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+        btnVoksenMinus.setText("-1");
+        btnVoksenMinus.setEnabled(false);
+        btnVoksenMinus.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnVoksenMinusActionPerformed(evt);
             }
         });
 
-        jTextField2.setEditable(false);
-        jTextField2.setText("0");
-        jTextField2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTextField2.setFocusable(false);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+        txtBalance.setEditable(false);
+        txtBalance.setText("0");
+        txtBalance.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        txtBalance.setFocusable(false);
+        txtBalance.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                txtBalanceActionPerformed(evt);
             }
         });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Balance:");
 
-        jButton5.setText("-1");
-        jButton5.setEnabled(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+        btnBarnMinus.setText("-1");
+        btnBarnMinus.setEnabled(false);
+        btnBarnMinus.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnBarnMinusActionPerformed(evt);
             }
         });
 
-        jButton6.setText("+1");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+        btnBarnPlus.setText("+1");
+        btnBarnPlus.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnBarnPlusActionPerformed(evt);
             }
         });
 
-        jButton7.setText("-1");
-        jButton7.setEnabled(false);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+        btnCykelMinus.setText("-1");
+        btnCykelMinus.setEnabled(false);
+        btnCykelMinus.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnCykelMinusActionPerformed(evt);
             }
         });
 
-        jButton8.setText("+1");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+        btnCykelPlus.setText("+1");
+        btnCykelPlus.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnCykelPlusActionPerformed(evt);
             }
         });
 
@@ -255,28 +281,35 @@ public class MitJPanel extends javax.swing.JPanel {
         jLabel5.setText("Børne billet");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
                 {"xc",  new Integer(24),  new Double(34.0)},
                 {"sdg7",  new Integer(55), null},
                 {null, null, null},
                 {null, null, null}
             },
-            new String [] {
+            new String []
+            {
                 "Billet", "Antal", "Samlet pris"
             }
-        ) {
-            Class[] types = new Class [] {
+        )
+        {
+            Class[] types = new Class []
+            {
                 java.lang.Object.class, java.lang.Integer.class, java.lang.Double.class
             };
-            boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean []
+            {
                 false, false, false
             };
 
-            public Class getColumnClass(int columnIndex) {
+            public Class getColumnClass(int columnIndex)
+            {
                 return types [columnIndex];
             }
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
+            public boolean isCellEditable(int rowIndex, int columnIndex)
+            {
                 return canEdit [columnIndex];
             }
         });
@@ -285,46 +318,53 @@ public class MitJPanel extends javax.swing.JPanel {
         jTable1.setFocusable(false);
         jTable1.setRowSelectionAllowed(false);
         jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
+        if (jTable1.getColumnModel().getColumnCount() > 0)
+        {
             jTable1.getColumnModel().getColumn(0).setResizable(false);
             jTable1.getColumnModel().getColumn(1).setResizable(false);
             jTable1.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        jTextField3.setText("Total pris: ");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+        txtTotalPris.setText("Total pris: ");
+        txtTotalPris.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                txtTotalPrisActionPerformed(evt);
             }
         });
 
         jSeparator1.setForeground(new java.awt.Color(204, 204, 204));
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jLabel7.setFont(new java.awt.Font("DejaVu Sans", 0, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel7.setText("⚙");
-        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        lblAdminMenu.setFont(new java.awt.Font("DejaVu Sans", 0, 24)); // NOI18N
+        lblAdminMenu.setForeground(new java.awt.Color(153, 153, 153));
+        lblAdminMenu.setText("⚙");
+        lblAdminMenu.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 AdminMenu(evt);
             }
         });
 
-        jButton2.setText("Slet alt");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        btnSletAlt.setText("Slet alt");
+        btnSletAlt.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnSletAltActionPerformed(evt);
             }
         });
 
-        jLabel10.setText("Kr.");
+        lblVoksenPris.setText("Kr.");
 
-        jLabel11.setText("Kr.");
+        lblBarnPris.setText("Kr.");
 
-        jLabel12.setText("Kr.");
+        lblCykelPris.setText("Kr.");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("TID");
+        lblTiden.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTiden.setText("TID");
 
         jButton14.setText("↓");
 
@@ -340,21 +380,21 @@ public class MitJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblVoksenPris, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(6, 6, 6)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnVoksenMinus, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addGap(29, 29, 29)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblBarnPris, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(7, 7, 7)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnBarnMinus, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(43, 43, 43)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblTiden, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel7))
+                                .addComponent(lblAdminMenu))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -363,16 +403,16 @@ public class MitJPanel extends javax.swing.JPanel {
                                             .addGap(33, 33, 33)
                                             .addComponent(jButton14)))
                                     .addGap(18, 18, 18)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblCykelPris, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(7, 7, 7)
-                                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnCykelMinus, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(2, 2, 2)
-                                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnCykelPlus, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addGap(210, 210, 210)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                        .addComponent(btnBarnPlus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnVoksenPlus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -380,13 +420,13 @@ public class MitJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(9, 9, 9)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(5, 5, 5)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnKøb, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTotalPris, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(6, 6, 6)
-                                .addComponent(jButton2)))))
+                                .addComponent(btnSletAlt)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(202, Short.MAX_VALUE))
@@ -400,8 +440,8 @@ public class MitJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel6))
+                                .addComponent(lblAdminMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblTiden))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(3, 3, 3)
                                 .addComponent(jLabel1)))
@@ -413,26 +453,26 @@ public class MitJPanel extends javax.swing.JPanel {
                                         .addGap(3, 3, 3)
                                         .addComponent(jLabel3))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jButton4)
-                                        .addComponent(jButton3))))
+                                        .addComponent(btnVoksenMinus)
+                                        .addComponent(btnVoksenPlus))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(31, 31, 31)
-                                .addComponent(jLabel10)))
+                                .addComponent(lblVoksenPris)))
                         .addGap(9, 9, 9)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel11)
-                            .addComponent(jButton5)
-                            .addComponent(jButton6))
+                            .addComponent(lblBarnPris)
+                            .addComponent(btnBarnMinus)
+                            .addComponent(btnBarnPlus))
                         .addGap(7, 7, 7)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel12)
-                            .addComponent(jButton7)
-                            .addComponent(jButton8))
+                            .addComponent(lblCykelPris)
+                            .addComponent(btnCykelMinus)
+                            .addComponent(btnCykelPlus))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)
@@ -440,21 +480,20 @@ public class MitJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel2))
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnKøb, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTotalPris, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSletAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 /////////////////////////////////////////
 
 
-  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      if(billetAutomatKlasse.balance<2){}
-      jButton1.setText("Sup");
+  private void btnKøbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKøbActionPerformed
+      if(billetAutomatKlasse.balance < 2){}
       
-              JFrame fra = new JFrame();
+        JFrame fra = new JFrame();
         JOptionPane.showMessageDialog(fra,
 "     ___      _____  \n"+
 "    |   _  )    |_     _| \n"+
@@ -466,7 +505,7 @@ public class MitJPanel extends javax.swing.JPanel {
 );
       
       repaint();
-  }//GEN-LAST:event_jButton1ActionPerformed
+  }//GEN-LAST:event_btnKøbActionPerformed
 
   private void musFlyttet(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_musFlyttet
       
@@ -478,7 +517,7 @@ public class MitJPanel extends javax.swing.JPanel {
 
     public int counter = 0;
 
-  private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+  private void btnVoksenMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoksenMinusActionPerformed
       // TODO add your handling code here:
 
       if (billetAutomatKlasse.VoksenBillet.size() > 0) {
@@ -487,12 +526,12 @@ public class MitJPanel extends javax.swing.JPanel {
       }
 
       if (billetAutomatKlasse.VoksenBillet.isEmpty()) {
-          jButton4.setEnabled(false);
+          btnVoksenMinus.setEnabled(false);
 
       }
 
 
-  }//GEN-LAST:event_jButton4ActionPerformed
+  }//GEN-LAST:event_btnVoksenMinusActionPerformed
 
   private void MusTrykkeIJframe(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MusTrykkeIJframe
       //System.out.println("Tykket: " + xpos + ", " + ypos);
@@ -538,7 +577,7 @@ public class MitJPanel extends javax.swing.JPanel {
               System.out.println(SelectedCoin.getValue() + " kr. has been added!!");
               System.out.println("Balance is now: " + billetAutomatKlasse.balance);
 
-              jTextField2.setText(String.valueOf(billetAutomatKlasse.balance));
+              txtBalance.setText(String.valueOf(billetAutomatKlasse.balance));
 
               SoundPlayer.play("CoinIn.wav");
           } else {
@@ -571,31 +610,31 @@ public class MitJPanel extends javax.swing.JPanel {
     }
 
 
-  private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        jButton5.setEnabled(true);
+  private void btnBarnPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBarnPlusActionPerformed
+        btnBarnMinus.setEnabled(true);
         billetKlasse BørneBillet = new billetKlasse(billetKlasse.ticketType.BARN, 5, "");
-        billetAutomatKlasse.BørneBillet.add(BørneBillet);      // TODO add your handling code here:
-  }//GEN-LAST:event_jButton6ActionPerformed
+        billetAutomatKlasse.BørneBillet.add(BørneBillet);
+  }//GEN-LAST:event_btnBarnPlusActionPerformed
 
-  private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+  private void btnCykelMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCykelMinusActionPerformed
        if (billetAutomatKlasse.CykelBillet.size() > 0) {
             
             billetAutomatKlasse.CykelBillet.remove(0);
         }
 
         if (billetAutomatKlasse.CykelBillet.isEmpty()) {
-            jButton7.setEnabled(false);
+            btnCykelMinus.setEnabled(false);
 
         }      // TODO add your handling code here:
-  }//GEN-LAST:event_jButton7ActionPerformed
+  }//GEN-LAST:event_btnCykelMinusActionPerformed
 
-  private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+  private void txtBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBalanceActionPerformed
       // TODO add your handling code here:
-  }//GEN-LAST:event_jTextField2ActionPerformed
+  }//GEN-LAST:event_txtBalanceActionPerformed
 
-  private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+  private void txtTotalPrisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalPrisActionPerformed
       // TODO add your handling code here:
-  }//GEN-LAST:event_jTextField3ActionPerformed
+  }//GEN-LAST:event_txtTotalPrisActionPerformed
 
   private void AdminMenu(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdminMenu
       // TODO add your handling code here:
@@ -616,17 +655,17 @@ public class MitJPanel extends javax.swing.JPanel {
 
   }//GEN-LAST:event_AdminMenu
 
-  private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+  private void btnSletAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSletAltActionPerformed
       // TODO add your handling code here:
-  }//GEN-LAST:event_jButton2ActionPerformed
+  }//GEN-LAST:event_btnSletAltActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        jButton4.setEnabled(true);
+    private void btnVoksenPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoksenPlusActionPerformed
+        btnVoksenMinus.setEnabled(true);
         billetKlasse VoksenBillet = new billetKlasse(billetKlasse.ticketType.VOKSEN, 5, "");
         billetAutomatKlasse.VoksenBillet.add(VoksenBillet);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnVoksenPlusActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnBarnMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBarnMinusActionPerformed
 
         if (billetAutomatKlasse.BørneBillet.size() > 0) {
             
@@ -634,16 +673,16 @@ public class MitJPanel extends javax.swing.JPanel {
         }
 
         if (billetAutomatKlasse.BørneBillet.isEmpty()) {
-            jButton5.setEnabled(false);
+            btnBarnMinus.setEnabled(false);
 
         }        
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnBarnMinusActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        jButton7.setEnabled(true);
+    private void btnCykelPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCykelPlusActionPerformed
+        btnCykelMinus.setEnabled(true);
         billetKlasse CykelBillet = new billetKlasse(billetKlasse.ticketType.CYKEL, 5, "");
         billetAutomatKlasse.CykelBillet.add(CykelBillet);
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_btnCykelPlusActionPerformed
 
     private void FocusGainedAndUpdatePrices(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_FocusGainedAndUpdatePrices
 
@@ -666,29 +705,29 @@ public class MitJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnBarnMinus;
+    private javax.swing.JButton btnBarnPlus;
+    private javax.swing.JButton btnCykelMinus;
+    private javax.swing.JButton btnCykelPlus;
+    private javax.swing.JButton btnKøb;
+    private javax.swing.JButton btnSletAlt;
+    private javax.swing.JButton btnVoksenMinus;
+    private javax.swing.JButton btnVoksenPlus;
     private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel lblAdminMenu;
+    private javax.swing.JLabel lblBarnPris;
+    private javax.swing.JLabel lblCykelPris;
+    private javax.swing.JLabel lblTiden;
+    private javax.swing.JLabel lblVoksenPris;
+    private javax.swing.JTextField txtBalance;
+    private javax.swing.JTextField txtTotalPris;
     // End of variables declaration//GEN-END:variables
 }
