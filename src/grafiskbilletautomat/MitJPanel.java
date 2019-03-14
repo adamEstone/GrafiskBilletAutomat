@@ -482,7 +482,7 @@ public class MitJPanel extends javax.swing.JPanel {
       // TODO add your handling code here:
 
       if (billetAutomatKlasse.VoksenBillet.size() > 0) {
-          billetKlasse VoksenBillet = new billetKlasse(1, 5, "");
+          billetKlasse VoksenBillet = new billetKlasse(billetKlasse.ticketType.VOKSEN, 5, "");
           billetAutomatKlasse.VoksenBillet.remove(0);
       }
 
@@ -573,7 +573,7 @@ public class MitJPanel extends javax.swing.JPanel {
 
   private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         jButton5.setEnabled(true);
-        billetKlasse BørneBillet = new billetKlasse(1, 5, "");
+        billetKlasse BørneBillet = new billetKlasse(billetKlasse.ticketType.BARN, 5, "");
         billetAutomatKlasse.BørneBillet.add(BørneBillet);      // TODO add your handling code here:
   }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -622,7 +622,7 @@ public class MitJPanel extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         jButton4.setEnabled(true);
-        billetKlasse VoksenBillet = new billetKlasse(1, 5, "");
+        billetKlasse VoksenBillet = new billetKlasse(billetKlasse.ticketType.VOKSEN, 5, "");
         billetAutomatKlasse.VoksenBillet.add(VoksenBillet);
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -641,7 +641,7 @@ public class MitJPanel extends javax.swing.JPanel {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         jButton7.setEnabled(true);
-        billetKlasse CykelBillet = new billetKlasse(1, 5, "");
+        billetKlasse CykelBillet = new billetKlasse(billetKlasse.ticketType.CYKEL, 5, "");
         billetAutomatKlasse.CykelBillet.add(CykelBillet);
     }//GEN-LAST:event_jButton8ActionPerformed
 

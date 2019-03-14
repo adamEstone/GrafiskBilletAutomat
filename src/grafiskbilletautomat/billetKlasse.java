@@ -9,11 +9,19 @@ package grafiskbilletautomat;
 
 public class billetKlasse {
 
-    private int type = 0;
+    public enum ticketType
+    {
+        VOKSEN,
+        BARN,
+        CYKEL,
+        TOTAL;
+    }
+    
+    private ticketType type;
     private int price = 0;
     private String timeStamp = "";
-
-    public billetKlasse(int theType, int thePrice, String theTimeStamp) {
+    
+    public billetKlasse(ticketType theType, int thePrice, String theTimeStamp) {
 
         type = theType;
         price = thePrice;
@@ -21,7 +29,7 @@ public class billetKlasse {
         
     }
     
-    public double getType() {
+    public ticketType getType() {
         return type;
     }
     
