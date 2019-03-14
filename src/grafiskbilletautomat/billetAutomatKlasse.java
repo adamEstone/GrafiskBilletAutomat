@@ -10,17 +10,23 @@ import java.util.Date;
 prisen bliver bestemt herfra
 
 */
+
+
+
 public class billetAutomatKlasse
 {
-    private ArrayList<String> transaktioner = new ArrayList<String>();
+    private static ArrayList<String> transaktioner = new ArrayList<String>();
+    
+    public static ArrayList<billetKlasse> Kurv = new ArrayList<billetKlasse>();
 
-    private double pris;    // Prisen for én billet.
-    private double balance; // Hvor mange penge kunden p.t. har puttet i automaten
+    private static double pris;    // Prisen for én billet.
+    private static double balance; // Hvor mange penge kunden p.t. har puttet i automaten
     private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
+    
+    
 
     /**
      * Opret en billetautomat, der sælger billetter til en given billetpris.
-     *o
      * @param billetpris skal være større end nul (p.t. bliver det ikke tjekket)
      */
 

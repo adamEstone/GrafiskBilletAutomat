@@ -510,6 +510,8 @@ public class MitJPanel extends javax.swing.JPanel {
 
     private void updateTable() {
 
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

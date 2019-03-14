@@ -292,7 +292,7 @@ public class IndtastKodePanel extends javax.swing.JPanel {
 
             JFrame AdminPanelvindue = new JFrame("Admin Menu");    // opret et vindue på skærmen
             AdminPanelvindue.add(panel);                          // vis panelet i vinduet
-
+            AdminPanelvindue.setAlwaysOnTop (true);
             AdminPanelvindue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); //dispose on close
             AdminPanelvindue.pack();                       // sæt vinduets størrelse
             AdminPanelvindue.setResizable(false);
