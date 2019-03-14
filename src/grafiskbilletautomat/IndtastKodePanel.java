@@ -1,4 +1,5 @@
 package grafiskbilletautomat;
+import static java.util.Comparator.comparing;
 
 import javax.swing.*;
 

@@ -11,20 +11,19 @@ prisen bliver bestemt herfra
 
 */
 
-
-
 public class billetAutomatKlasse
 {
     private static ArrayList<String> transaktioner = new ArrayList<String>();
     
-    public static ArrayList<billetKlasse> Kurv = new ArrayList<billetKlasse>();
+    public static ArrayList<billetKlasse> VoksenBillet = new ArrayList<billetKlasse>();
+    public static ArrayList<billetKlasse> BørneBillet = new ArrayList<billetKlasse>();
+    public static ArrayList<billetKlasse> CykelBillet = new ArrayList<billetKlasse>();
 
     private static double pris;    // Prisen for én billet.
     private static double balance; // Hvor mange penge kunden p.t. har puttet i automaten
     private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
     
-    
-
+   
     /**
      * Opret en billetautomat, der sælger billetter til en given billetpris.
      * @param billetpris skal være større end nul (p.t. bliver det ikke tjekket)
@@ -126,6 +125,15 @@ public class billetAutomatKlasse
         Date epoch = new Date(System.currentTimeMillis());
 
         SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");
+
+        return time.format(epoch);
+    }
+    
+   public static String getTimeHouresAndMinutesOnly()
+    {
+        Date epoch = new Date(System.currentTimeMillis());
+
+        SimpleDateFormat time = new SimpleDateFormat("HH:mm");
 
         return time.format(epoch);
     }
