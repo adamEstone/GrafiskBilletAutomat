@@ -1,4 +1,3 @@
-
 package grafiskbilletautomat;
 
 import javax.swing.JFrame;
@@ -11,82 +10,81 @@ import java.awt.Toolkit;
 import java.awt.image.MemoryImageSource;
 import java.util.ArrayList;
 
-
 /**
  *
  * @author Adam Aron Edelsten
  */
 public class MitJPanel extends javax.swing.JPanel {
 
-	private int mouseXpos;
-	private int mouseYpos;
+    private int mouseXpos;
+    private int mouseYpos;
 
-	public static ArrayList<Coin> allCoins = new ArrayList<>();
+    public static ArrayList<Coin> allCoins = new ArrayList<>();
 
-	public MitJPanel() { // Class constructor run 
+    public MitJPanel() { // Class constructor run 
 
-		initComponents(); //interface components
-                
-		int coinAreaOffsetX=400;
-		int coinAreaOffsetY=200;
-		
-		//Adding different coins to the allCoins list object
-		Coin HalvKrone = new Coin(coinAreaOffsetX, coinAreaOffsetY,45, 0.5, "50ore.png");
-		allCoins.add(HalvKrone);
-		Coin EnKrone = new Coin(coinAreaOffsetX+35, coinAreaOffsetY,50, 1, "1Krone.png");
-		allCoins.add(EnKrone);
-		Coin ToKrone = new Coin(coinAreaOffsetX + 35 + 35, coinAreaOffsetY,55, 2, "2Krone.png");
-		allCoins.add(ToKrone);
-		Coin FemKrone = new Coin(coinAreaOffsetX + 35 + 35 + 35, coinAreaOffsetY,70, 5, "5Krone.png");
-		allCoins.add(FemKrone);
-		Coin TiKrone =  new Coin(coinAreaOffsetX , coinAreaOffsetY + 55,55, 10, "10Krone.png");
-		allCoins.add(TiKrone);
-		Coin TyevKrone = new Coin(coinAreaOffsetX + 40, coinAreaOffsetY + 55,63, 20, "20Krone.png");
-		allCoins.add(TyevKrone);
+        initComponents(); //interface components
 
-	}
+        int coinAreaOffsetX = 400;
+        int coinAreaOffsetY = 200;
 
-	//settings for the coin slot
-	Image slot = Toolkit.getDefaultToolkit().getImage("slot.png");
-	int slotPositionX = 435;
-	int slotPositionY = 15;
-	int slotWidth = 2 * 45; //for 2*  og 3* for scaling korrekt
-	int slotHeight = 3 * 45;
+        //Adding different coins to the allCoins list object
+        Coin HalvKrone = new Coin(coinAreaOffsetX, coinAreaOffsetY, 45, 0.5, "50ore.png");
+        allCoins.add(HalvKrone);
+        Coin EnKrone = new Coin(coinAreaOffsetX + 35, coinAreaOffsetY, 50, 1, "1Krone.png");
+        allCoins.add(EnKrone);
+        Coin ToKrone = new Coin(coinAreaOffsetX + 35 + 35, coinAreaOffsetY, 55, 2, "2Krone.png");
+        allCoins.add(ToKrone);
+        Coin FemKrone = new Coin(coinAreaOffsetX + 35 + 35 + 35, coinAreaOffsetY, 70, 5, "5Krone.png");
+        allCoins.add(FemKrone);
+        Coin TiKrone = new Coin(coinAreaOffsetX, coinAreaOffsetY + 55, 55, 10, "10Krone.png");
+        allCoins.add(TiKrone);
+        Coin TyevKrone = new Coin(coinAreaOffsetX + 40, coinAreaOffsetY + 55, 63, 20, "20Krone.png");
+        allCoins.add(TyevKrone);
 
-	double balance = 0;// SKAL SKIFTES TIL DEN ANDEN KLASSE
+    }
 
-	boolean holdingCoin = false; //Is the coin currently being dragged in the hand?
-	Coin SelectedCoin; //this will contain the coin object that has been selected
+    //settings for the coin slot
+    Image slot = Toolkit.getDefaultToolkit().getImage("slot.png");
+    int slotPositionX = 435;
+    int slotPositionY = 15;
+    int slotWidth = 2 * 45; //for 2*  og 3* for scaling korrekt
+    int slotHeight = 3 * 45;
 
-	public void paintComponent(Graphics g) { //Drawing rutine
+    double balance = 0;// SKAL SKIFTES TIL DEN ANDEN KLASSE
 
-		super.paintComponent(g);  // tegn først baggrunden på panelet
+    boolean holdingCoin = false; //Is the coin currently being dragged in the hand?
+    Coin SelectedCoin; //this will contain the coin object that has been selected
 
-		//draw coin slot
-		g.drawImage(slot, slotPositionX, slotPositionY, slotWidth, slotHeight, this);
+    public void paintComponent(Graphics g) { //Drawing rutine
 
-		//draw all the coins from allCoins list
-		for (Coin element : allCoins) {
+        super.paintComponent(g);  // tegn først baggrunden på panelet
 
-			g.drawImage(element.getImage(), element.getXpos(), element.getYpos(), element.getSize()-5, element.getSize()-5, this);
+        //draw coin slot
+        g.drawImage(slot, slotPositionX, slotPositionY, slotWidth, slotHeight, this);
 
-		}
+        //draw all the coins from allCoins list
+        for (Coin element : allCoins) {
 
-		if (holdingCoin) { // draw the coin on the mouse position
+            g.drawImage(element.getImage(), element.getXpos(), element.getYpos(), element.getSize() - 5, element.getSize() - 5, this);
 
-			g.drawImage(SelectedCoin.getImage(), mouseXpos - SelectedCoin.getCenter(), mouseYpos - SelectedCoin.getCenter(), SelectedCoin.getSize(), SelectedCoin.getSize(), this);
+        }
 
-		}
+        if (holdingCoin) { // draw the coin on the mouse position
 
-	}
+            g.drawImage(SelectedCoin.getImage(), mouseXpos - SelectedCoin.getCenter(), mouseYpos - SelectedCoin.getCenter(), SelectedCoin.getSize(), SelectedCoin.getSize(), this);
+
+        }
+
+    }
 
 //////////////////////////////////////////
-	/**
-	 * This method is called from within the constructor to initialize the form.
-	 * WARNING: Do NOT modify this code. The content of this method is always
-	 * regenerated by the Form Editor.
-	 */
-	@SuppressWarnings("unchecked")
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -145,9 +143,14 @@ public class MitJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(27, 112, 0));
-        jLabel1.setText("Køb Billeter til enkeltrejse (Gælder 8 timer)");
+        jLabel1.setText("Køb Billeter til enkeltrejse");
 
         jButton3.setLabel("+1");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("-1");
         jButton4.setEnabled(false);
@@ -201,8 +204,8 @@ public class MitJPanel extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
+                {"xc",  new Integer(24),  new Double(34.0)},
+                {"sdg7",  new Integer(55), null},
                 {null, null, null},
                 {null, null, null}
             },
@@ -226,6 +229,7 @@ public class MitJPanel extends javax.swing.JPanel {
             }
         });
         jTable1.setAutoscrolls(false);
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTable1.setFocusable(false);
         jTable1.setRowSelectionAllowed(false);
         jScrollPane1.setViewportView(jTable1);
@@ -359,144 +363,154 @@ public class MitJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 /////////////////////////////////////////
-	
-	
 
 
   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-		// TODO add your handling code here:
-		jButton1.setText("Sup");
-		repaint();
+      // TODO add your handling code here:
+      jButton1.setText("Sup");
+      repaint();
   }//GEN-LAST:event_jButton1ActionPerformed
 
   private void musFlyttet(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_musFlyttet
 
-		mouseXpos = evt.getX();
-		mouseYpos = evt.getY();
-		repaint();
+      mouseXpos = evt.getX();
+      mouseYpos = evt.getY();
+      repaint();
 
   }//GEN-LAST:event_musFlyttet
 
-	public int counter = 0;
+    public int counter = 0;
 
   private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-		// TODO add your handling code here:
+      // TODO add your handling code here:
   }//GEN-LAST:event_jButton4ActionPerformed
 
   private void MusTrykkeIJframe(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MusTrykkeIJframe
-		//System.out.println("Tykket: " + xpos + ", " + ypos);
+      //System.out.println("Tykket: " + xpos + ", " + ypos);
   }//GEN-LAST:event_MusTrykkeIJframe
 
   private void MUSDRAGGED(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MUSDRAGGED
 
-		mouseXpos = evt.getX();
-		mouseYpos = evt.getY();
-                
-		repaint();
+      mouseXpos = evt.getX();
+      mouseYpos = evt.getY();
+
+      repaint();
 
   }//GEN-LAST:event_MUSDRAGGED
 
 
   private void TRYKKETNED(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TRYKKETNED
 
-		for (Coin element : allCoins) { //run through all coins
-			if (mouseXpos >= element.getXpos() && mouseXpos <= element.getXpos() + element.getSize()//check if any coin is in range of mouse xpos and mouse y
-                            && mouseYpos >= element.getYpos() && mouseYpos <= element.getYpos() + element.getSize()) {
+      for (Coin element : allCoins) { //run through all coins
+          if (mouseXpos >= element.getXpos() && mouseXpos <= element.getXpos() + element.getSize()//check if any coin is in range of mouse xpos and mouse y
+                  && mouseYpos >= element.getYpos() && mouseYpos <= element.getYpos() + element.getSize()) {
 
-				SelectedCoin = element;
+              SelectedCoin = element;
 
-				holdingCoin = true;
+              holdingCoin = true;
 
-			}
-		}
+          }
+      }
 
-		if (holdingCoin) {
-			hideCursor();
-		}
+      if (holdingCoin) {
+          hideCursor();
+      }
 
   }//GEN-LAST:event_TRYKKETNED
 
   private void MUSSLUPPET(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MUSSLUPPET
 
-		if (holdingCoin) {
-			if (mouseXpos >= slotPositionX && mouseXpos <= slotPositionX + slotWidth //check if any coin is in range of mouse xpos and mouse y
-							&& mouseYpos >= slotPositionY && mouseYpos <= slotPositionY + slotHeight) {
+      if (holdingCoin) {
+          if (mouseXpos >= slotPositionX && mouseXpos <= slotPositionX + slotWidth //check if any coin is in range of mouse xpos and mouse y
+                  && mouseYpos >= slotPositionY && mouseYpos <= slotPositionY + slotHeight) {
 
-				balance += SelectedCoin.getValue();
+              balance += SelectedCoin.getValue();
 
-				System.out.println(SelectedCoin.getValue() + " kr. has been added!!");
-				System.out.println("Balance is now: " + balance);
+              System.out.println(SelectedCoin.getValue() + " kr. has been added!!");
+              System.out.println("Balance is now: " + balance);
 
-				jTextField2.setText(String.valueOf(balance));
+              jTextField2.setText(String.valueOf(balance));
 
-				SoundPlayer.play("CoinIn.wav");
-			}else{
-				SoundPlayer.play("CoinLost.wav");
-                                
-			}
-		}
+              SoundPlayer.play("CoinIn.wav");
+          } else {
+              SoundPlayer.play("CoinLost.wav");
 
-		holdingCoin = false;
-		showCursor();
-		repaint();
+          }
+      }
+
+      holdingCoin = false;
+      showCursor();
+      repaint();
 
   }//GEN-LAST:event_MUSSLUPPET
 
-	private void hideCursor() {
-		// http://www.java2s.com/Code/Java/2D-Graphics-GUI/HidethemousecursoruseatransparentGIFasthecursor.htm
-		int[] pixels = new int[16 * 16];
-		Image image = Toolkit.getDefaultToolkit().createImage(
-						new MemoryImageSource(16, 16, pixels, 0, 16));
-		Cursor transparentCursor = Toolkit.getDefaultToolkit().createCustomCursor(
-						image, new Point(0, 0), "invisibleCursor");
+    private void hideCursor() {
+        // http://www.java2s.com/Code/Java/2D-Graphics-GUI/HidethemousecursoruseatransparentGIFasthecursor.htm
+        int[] pixels = new int[16 * 16];
+        Image image = Toolkit.getDefaultToolkit().createImage(
+                new MemoryImageSource(16, 16, pixels, 0, 16));
+        Cursor transparentCursor = Toolkit.getDefaultToolkit().createCustomCursor(
+                image, new Point(0, 0), "invisibleCursor");
 
-		setCursor(transparentCursor);
+        setCursor(transparentCursor);
 
-		repaint();
-	}
+        repaint();
+    }
 
-	private void showCursor() {
-		setCursor(Cursor.getDefaultCursor());
-	}
+    private void showCursor() {
+        setCursor(Cursor.getDefaultCursor());
+    }
 
 
   private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-		// TODO add your handling code here:
+      // TODO add your handling code here:
   }//GEN-LAST:event_jButton6ActionPerformed
 
   private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-		// TODO add your handling code here:
+      // TODO add your handling code here:
   }//GEN-LAST:event_jButton7ActionPerformed
 
   private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-		// TODO add your handling code here:
+      // TODO add your handling code here:
   }//GEN-LAST:event_jTextField2ActionPerformed
 
   private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-		// TODO add your handling code here:
+      // TODO add your handling code here:
   }//GEN-LAST:event_jTextField3ActionPerformed
 
   private void AdminMenu(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdminMenu
-    // TODO add your handling code here:
-		System.out.println("hej");
-		
-		IndtastKodePanel panel = new IndtastKodePanel();        // opret panelet
+      // TODO add your handling code here:
+      System.out.println("Pin code window opened");
 
-		JFrame IndtastKodePanelVindue = new JFrame("IndtastKodePanel");    // opret et vindue på skærmen
-		IndtastKodePanelVindue.add( panel );                          // vis panelet i vinduet
+      IndtastKodePanel panel = new IndtastKodePanel();        // opret panelet
 
-		IndtastKodePanelVindue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // reagér på luk
-		IndtastKodePanelVindue.pack();                       // sæt vinduets størrelse
-		IndtastKodePanelVindue.setResizable(false);
-		IndtastKodePanelVindue.setVisible(true);                      // åbn vinduet
-	  
-		
+      JFrame IndtastKodePanelVindue = new JFrame("IndtastKodePanel");    // opret et vindue på skærmen
+      IndtastKodePanelVindue.add(panel);
+      
+      IndtastKodePanelVindue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // reagér på luk
+      IndtastKodePanelVindue.pack();                       // sæt vinduets størrelse
+      IndtastKodePanelVindue.setResizable(false);
+      IndtastKodePanelVindue.setVisible(true);                      // åbn vinduet
+      IndtastKodePanelVindue.toFront();
+      IndtastKodePanelVindue.requestFocus();// vis panelet i vinduet
+      IndtastKodePanelVindue.setAlwaysOnTop(true);
+
   }//GEN-LAST:event_AdminMenu
 
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    // TODO add your handling code here:
+      // TODO add your handling code here:
   }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        jButton4.setEnabled(true);
+        billetKlasse VoksenBillet = new billetKlasse(1, 5, "");
+        billetAutomatKlasse.Kurv.add(VoksenBillet);
+        updateTable();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void updateTable() {
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

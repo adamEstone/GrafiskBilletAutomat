@@ -157,13 +157,16 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="70" red="1b" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="K&#xf8;b Billeter til enkeltrejse (G&#xe6;lder 8 timer)"/>
+        <Property name="text" type="java.lang.String" value="K&#xf8;b Billeter til enkeltrejse"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton3">
       <Properties>
         <Property name="label" type="java.lang.String" value="+1"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton4">
       <Properties>
@@ -258,9 +261,24 @@
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="3" rowCount="4">
-                <Column editable="false" title="Billet" type="java.lang.Object"/>
-                <Column editable="false" title="Antal" type="java.lang.Integer"/>
-                <Column editable="false" title="Samlet pris" type="java.lang.Double"/>
+                <Column editable="false" title="Billet" type="java.lang.Object">
+                  <Data value="xc"/>
+                  <Data value="sdg7"/>
+                  <Data value="null"/>
+                  <Data value="null"/>
+                </Column>
+                <Column editable="false" title="Antal" type="java.lang.Integer">
+                  <Data value="24"/>
+                  <Data value="55"/>
+                  <Data value="null"/>
+                  <Data value="null"/>
+                </Column>
+                <Column editable="false" title="Samlet pris" type="java.lang.Double">
+                  <Data value="34.0"/>
+                  <Data value="null"/>
+                  <Data value="null"/>
+                  <Data value="null"/>
+                </Column>
               </Table>
             </Property>
             <Property name="autoscrolls" type="boolean" value="false"/>
@@ -282,6 +300,9 @@
                   <Renderer/>
                 </Column>
               </TableColumnModel>
+            </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Default Cursor"/>
             </Property>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="rowSelectionAllowed" type="boolean" value="false"/>
@@ -321,6 +342,9 @@
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="AdminMenu"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="MitJPanel_jLabel7"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
