@@ -19,7 +19,7 @@ public class GrafiskBilletAutomat {
 
 		JFrame vindue = new JFrame("Billet Automaten");    // opret et vindue på skærmen
 		vindue.add( panel );                          // vis panelet i vinduet
-vindue.setSize(500, 500);
+                vindue.setSize(500, 500);
 		vindue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // reagér på luk
 		vindue.pack();                       // sæt vinduets størrelse
 		vindue.setResizable(false);

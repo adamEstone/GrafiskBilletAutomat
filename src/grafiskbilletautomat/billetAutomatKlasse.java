@@ -19,8 +19,13 @@ public class billetAutomatKlasse
     public static ArrayList<billetKlasse> BørneBillet = new ArrayList<billetKlasse>();
     public static ArrayList<billetKlasse> CykelBillet = new ArrayList<billetKlasse>();
 
-    private static double pris;    // Prisen for én billet.
-    private static double balance; // Hvor mange penge kunden p.t. har puttet i automaten
+    public static double totalPris;    // Prisen for én billet.
+    
+    public static double voksenPris=20;    // Prisen for én billet.
+    public static double børnePris=15;    // Prisen for én billet.
+    public static double cykelPris=12.5;    // Prisen for én billet.
+    
+    public static double balance; // Hvor mange penge kunden p.t. har puttet i automaten
     private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
     
    
@@ -34,7 +39,7 @@ public class billetAutomatKlasse
      */
     public double getBilletpris()
     {
-        double resultat = pris;
+        double resultat = totalPris;
         return resultat;
     }
 
@@ -61,17 +66,17 @@ public class billetAutomatKlasse
      */
     public void udskrivBillet()
     {
-        if (balance >= pris)
+        if (balance >= totalPris)
         {
             transaktioner.add(new Date() + " der blev udskrevet en billet");
             antalBilletterSolgt = antalBilletterSolgt + 1;
-            balance = balance - pris;
+            balance = balance - totalPris;
 
             System.out.println("##########B##T##########");
             System.out.println("# Borgen Trafikselskab #");
             System.out.println("#                      #");
             System.out.println("#        Billet        #");
-            System.out.println("#        " + pris + " kr.        #");
+            System.out.println("#        " + totalPris + " kr.        #");
             System.out.println("#                      #");
             System.out.println("# Du har " + balance + " kr til gode #");
             System.out.println("##########B##T##########");
@@ -97,7 +102,7 @@ public class billetAutomatKlasse
     {
         if (montørkode.equals("1234"))
         {
-            pris = nyPris;
+            totalPris = nyPris;
         } else
         {
             System.err.println("Kunne ikke sætte pris - forkert kode");
@@ -107,7 +112,7 @@ public class billetAutomatKlasse
     public double getSamletSalgsbeløb(String montørkode)
     {
         if (montørkode.equals("1234"));
-        return pris * antalBilletterSolgt;
+        return totalPris * antalBilletterSolgt;
     }
     
     
@@ -129,12 +134,5 @@ public class billetAutomatKlasse
         return time.format(epoch);
     }
     
-   public static String getTimeHouresAndMinutesOnly()
-    {
-        Date epoch = new Date(System.currentTimeMillis());
 
-        SimpleDateFormat time = new SimpleDateFormat("HH:mm");
-
-        return time.format(epoch);
-    }
 }
