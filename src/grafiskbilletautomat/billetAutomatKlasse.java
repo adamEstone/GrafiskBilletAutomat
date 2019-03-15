@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import jdk.jshell.spi.ExecutionControl;
 
 
 /*
@@ -21,13 +22,14 @@ public class billetAutomatKlasse
     public static ArrayList<billetKlasse> BørneBillet = new ArrayList<billetKlasse>();
     public static ArrayList<billetKlasse> CykelBillet = new ArrayList<billetKlasse>();
 
-    public static double totalPris;    // Prisen for én billet.
+    private static double totalPris;    // Prisen for én billet.
     
     private static double voksenPris = 20;    // Prisen for én billet.
     private static double børnePris = 15;    // Prisen for én billet.
     private static double cykelPris = 12.5;    // Prisen for én billet.
     
-    public static double balance; // Hvor mange penge kunden p.t. har puttet i automaten
+    private static double balance; // Hvor mange penge kunden p.t. har puttet i automaten
+
     private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
     
    
@@ -36,13 +38,15 @@ public class billetAutomatKlasse
      * @param billetpris skal være større end nul (p.t. bliver det ikke tjekket)
      */
 
+    //TODO: VIRKER IKKE! FÅR IKKE AKTUEL PRIS
     private static double getTotalBalance()
     {
-        double adult = getAdultBalance();
-        double child = getChildBalance();
-        double bike = getBikeBalance();
+        throw new UnsupportedOperationException("Not supported yet.");
+        //double adult = getAdultBalance();
+        //double child = getChildBalance();
+        //double bike = getBikeBalance();
         
-        return adult + child + bike;
+        //return adult + child + bike;
     }
 
     private static double getAdultBalance()
@@ -111,6 +115,7 @@ public class billetAutomatKlasse
             JOptionPane.showMessageDialog(fra, "Prisen skal være positiv.");
             return;
         }
+        
         switch(type)
         {
             case VOKSEN:
@@ -141,9 +146,21 @@ public class billetAutomatKlasse
     /**
      * Giver balancen (beløbet maskinen har modtaget til den næste billet).
      */
-    public double getBalance()
+    public static double getBalance()
     {
         return balance;
+    }
+    
+    public static void setBalance(double bal)
+    {
+        if (bal < 0)
+        {
+            JFrame fra = new JFrame();
+            JOptionPane.showMessageDialog(fra, "Prisen skal være positiv.");
+            return;
+        }
+        
+        balance = bal;
     }
 
     /**
