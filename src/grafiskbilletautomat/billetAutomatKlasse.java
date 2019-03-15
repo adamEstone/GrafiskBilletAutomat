@@ -18,9 +18,9 @@ public class billetAutomatKlasse
 {
     private static ArrayList<String> transaktioner = new ArrayList<String>();
     
-    public static ArrayList<billetKlasse> VoksenBillet = new ArrayList<billetKlasse>();
-    public static ArrayList<billetKlasse> BørneBillet = new ArrayList<billetKlasse>();
-    public static ArrayList<billetKlasse> CykelBillet = new ArrayList<billetKlasse>();
+    public static ArrayList<billetKlasse> VoksenBilletter = new ArrayList<billetKlasse>();
+    public static ArrayList<billetKlasse> BørneBilletter = new ArrayList<billetKlasse>();
+    public static ArrayList<billetKlasse> CykelBilletter = new ArrayList<billetKlasse>();
 
     private static double totalPris;    // Prisen for én billet.
     
@@ -41,40 +41,39 @@ public class billetAutomatKlasse
     //TODO: VIRKER IKKE! FÅR IKKE AKTUEL PRIS
     private static double getTotalBalance()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
-        //double adult = getAdultBalance();
-        //double child = getChildBalance();
-        //double bike = getBikeBalance();
+        double adult = getAdultTotal();
+        double child = getChildTotal();
+        double bike = getBikeTotal();
         
-        //return adult + child + bike;
+        return adult + child + bike;
     }
 
-    private static double getAdultBalance()
+    private static double getAdultTotal()
     {
         return voksenPris;
     }
     
-    private static void setAdultBalance(double pris)
+    private static void setAdultPrice(double pris)
     {
         voksenPris = pris;
     }
 
-    private static double getChildBalance()
+    private static double getChildTotal()
     {
         return børnePris;
     }
     
-    private static void setChildBalance(double pris)
+    private static void setChildPrice(double pris)
     {
         børnePris = pris;
     }
 
-    private static double getBikeBalance()
+    private static double getBikeTotal()
     {
         return cykelPris;
     }
     
-    private static void setBikeBalance(double pris)
+    private static void setBikePrice(double pris)
     {
         cykelPris = pris;
     }
@@ -88,13 +87,13 @@ public class billetAutomatKlasse
         switch(type)
         {
             case VOKSEN:
-                pris = getAdultBalance();
+                pris = getAdultTotal();
                 break;
             case BARN:
-                pris = getChildBalance();
+                pris = getChildTotal();
                 break;
             case CYKEL:
-                pris = getBikeBalance();
+                pris = getBikeTotal();
                 break;
             case TOTAL:
                 pris = getTotalBalance();
@@ -119,13 +118,13 @@ public class billetAutomatKlasse
         switch(type)
         {
             case VOKSEN:
-                setAdultBalance(pris);
+                setAdultPrice(pris);
                 break;
             case BARN:
-                setChildBalance(pris);
+                setChildPrice(pris);
                 break;
             case CYKEL:
-                setBikeBalance(pris);
+                setBikePrice(pris);
                 break;
             default:
                 break;
