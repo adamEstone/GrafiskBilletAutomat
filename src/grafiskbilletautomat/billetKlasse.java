@@ -13,8 +13,7 @@ public class billetKlasse {
     {
         VOKSEN,
         BARN,
-        CYKEL,
-        TOTAL;
+        CYKEL;
     }
     
     private ticketType type;

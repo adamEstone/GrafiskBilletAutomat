@@ -95,9 +95,6 @@ public class billetAutomatKlasse
             case CYKEL:
                 pris = getBikePrice();
                 break;
-            case TOTAL:
-                pris = getTotalBalance();
-                break;
             default:
                 break;
                 
@@ -176,6 +173,16 @@ public class billetAutomatKlasse
         }
         
         balance = bal;
+    }
+    
+    public static void setTotalPrice(double price)
+    {
+        totalPris = price;
+    }
+    
+    public static double getTotalPrice()
+    {
+        return totalPris;
     }
 
     /**
