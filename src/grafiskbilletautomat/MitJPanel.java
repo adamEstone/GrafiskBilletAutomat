@@ -149,7 +149,6 @@ public class MitJPanel extends javax.swing.JPanel
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        txtTotalPris = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         lblAdminMenu = new javax.swing.JLabel();
         btnSletAlt = new javax.swing.JButton();
@@ -229,7 +228,7 @@ public class MitJPanel extends javax.swing.JPanel
         });
 
         txtBalance.setEditable(false);
-        txtBalance.setText("0");
+        txtBalance.setText("0 kr.");
         txtBalance.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtBalance.setFocusable(false);
         txtBalance.addActionListener(new java.awt.event.ActionListener()
@@ -335,15 +334,6 @@ public class MitJPanel extends javax.swing.JPanel
             jTable1.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        txtTotalPris.setText("Total pris: 0");
-        txtTotalPris.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                txtTotalPrisActionPerformed(evt);
-            }
-        });
-
         jSeparator1.setForeground(new java.awt.Color(204, 204, 204));
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -430,12 +420,10 @@ public class MitJPanel extends javax.swing.JPanel
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(9, 9, 9)
-                                .addComponent(txtBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
+                                .addComponent(txtBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
                                 .addComponent(btnKøb, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(txtTotalPris, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
+                                .addGap(18, 18, 18)
                                 .addComponent(btnSletAlt)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -491,9 +479,9 @@ public class MitJPanel extends javax.swing.JPanel
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel2))
                             .addComponent(txtBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnKøb, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTotalPris, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSletAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btnSletAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnKøb, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -626,7 +614,7 @@ public class MitJPanel extends javax.swing.JPanel
               System.out.println(SelectedCoin.getValue() + " kr. has been added!!");
               System.out.println("Balance is now: " + billetAutomatKlasse.getBalance());
 
-              txtBalance.setText(String.valueOf(billetAutomatKlasse.getBalance()));
+              txtBalance.setText(String.valueOf(billetAutomatKlasse.getBalance()) + " kr.");
 
               SoundPlayer.play("CoinIn.wav");
           }
@@ -718,10 +706,6 @@ public class MitJPanel extends javax.swing.JPanel
   private void txtBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBalanceActionPerformed
       // TODO add your handling code here:
   }//GEN-LAST:event_txtBalanceActionPerformed
-
-  private void txtTotalPrisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalPrisActionPerformed
-      // TODO add your handling code here:
-  }//GEN-LAST:event_txtTotalPrisActionPerformed
 
   private void AdminMenu(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdminMenu
       // TODO add your handling code here:
@@ -875,6 +859,5 @@ public class MitJPanel extends javax.swing.JPanel
     private javax.swing.JLabel lblTiden;
     private javax.swing.JLabel lblVoksenPris;
     private javax.swing.JTextField txtBalance;
-    private javax.swing.JTextField txtTotalPris;
     // End of variables declaration//GEN-END:variables
 }
