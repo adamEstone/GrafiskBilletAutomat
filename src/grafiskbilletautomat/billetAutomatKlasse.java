@@ -105,10 +105,10 @@ public class billetAutomatKlasse
     
     public static void setBilletpris(billetKlasse.ticketType type, double pris)
     {
-        if (pris <= 0)
+        if (pris < 0)
         {
             JFrame fra = new JFrame();
-            JOptionPane.showMessageDialog(fra,"Prisen skal være positiv.");
+            JOptionPane.showMessageDialog(fra, "Prisen skal være positiv.");
             return;
         }
         switch(type)
