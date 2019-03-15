@@ -70,6 +70,8 @@ public class MitJPanel extends javax.swing.JPanel
 
         //start timer
         timer.scheduleAtFixedRate(task, 500, 500);
+        
+        updateTotal();
 
     }
 
@@ -116,6 +118,8 @@ public class MitJPanel extends javax.swing.JPanel
             g.drawImage(SelectedCoin.getImage(), mouseXpos - SelectedCoin.getCenter(), mouseYpos - SelectedCoin.getCenter(), SelectedCoin.getSize(), SelectedCoin.getSize(), this);
 
         }
+        
+        
 
     }
 
@@ -529,13 +533,13 @@ public class MitJPanel extends javax.swing.JPanel
         int antal = 0;
         double pris = 0;
                 
-        antal = (int) jTable1.getValueAt(0, 1) + 
-                (int) jTable1.getValueAt(1, 1) +
-                (int) jTable1.getValueAt(2, 1);
+        antal = billetAutomatKlasse.VoksenBilletter.size() +
+                billetAutomatKlasse.BørneBilletter.size() +
+                billetAutomatKlasse.CykelBilletter.size();
         
-        pris  = (double) jTable1.getValueAt(0, 2) +
-                (double) jTable1.getValueAt(1, 2) +
-                (double) jTable1.getValueAt(2, 2);
+        pris  = billetAutomatKlasse.getAdultTotal() +
+                billetAutomatKlasse.getChildTotal() +
+                billetAutomatKlasse.getBikeTotal();
 
         System.out.println(pris);
         System.out.println(antal);
@@ -750,15 +754,15 @@ public class MitJPanel extends javax.swing.JPanel
       billetAutomatKlasse.BørneBilletter.removeAll(billetAutomatKlasse.BørneBilletter);
       billetAutomatKlasse.CykelBilletter.removeAll(billetAutomatKlasse.CykelBilletter);
 
-      txtTotalPris.setText("Total pris: 0");
 
-      for (int i = 0; i < jTable1.getRowCount(); i++)
+      for (int i = 0; i < jTable1.getRowCount() - 1; i++)
       {
           for (int j = 0; j < jTable1.getColumnCount(); j++)
           {
               jTable1.setValueAt(null, i, j);
           }
       }
+      updateTotal();
   }//GEN-LAST:event_btnSletAltActionPerformed
 
     private void btnVoksenPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoksenPlusActionPerformed

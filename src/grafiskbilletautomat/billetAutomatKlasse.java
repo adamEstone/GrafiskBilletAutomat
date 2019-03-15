@@ -41,14 +41,14 @@ public class billetAutomatKlasse
     //TODO: VIRKER IKKE! FÅR IKKE AKTUEL PRIS
     private static double getTotalBalance()
     {
-        double adult = getAdultTotal();
-        double child = getChildTotal();
-        double bike = getBikeTotal();
+        double adult = getAdultPrice();
+        double child = getChildPrice();
+        double bike = getBikePrice();
         
         return adult + child + bike;
     }
 
-    private static double getAdultTotal()
+    private static double getAdultPrice()
     {
         return voksenPris;
     }
@@ -58,7 +58,7 @@ public class billetAutomatKlasse
         voksenPris = pris;
     }
 
-    private static double getChildTotal()
+    private static double getChildPrice()
     {
         return børnePris;
     }
@@ -68,7 +68,7 @@ public class billetAutomatKlasse
         børnePris = pris;
     }
 
-    private static double getBikeTotal()
+    private static double getBikePrice()
     {
         return cykelPris;
     }
@@ -87,13 +87,13 @@ public class billetAutomatKlasse
         switch(type)
         {
             case VOKSEN:
-                pris = getAdultTotal();
+                pris = getAdultPrice();
                 break;
             case BARN:
-                pris = getChildTotal();
+                pris = getChildPrice();
                 break;
             case CYKEL:
-                pris = getBikeTotal();
+                pris = getBikePrice();
                 break;
             case TOTAL:
                 pris = getTotalBalance();
@@ -130,6 +130,22 @@ public class billetAutomatKlasse
                 break;
                 
         }
+    }
+    
+    
+    public static double getAdultTotal()
+    {
+        return VoksenBilletter.size() * getAdultPrice();
+    }
+    
+    public static double getChildTotal()
+    {
+        return BørneBilletter.size() * getChildPrice();
+    }
+    
+    public static double getBikeTotal()
+    {
+        return CykelBilletter.size() * getBikePrice();
     }
 
     /**
