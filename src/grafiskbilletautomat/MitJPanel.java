@@ -11,6 +11,8 @@ import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.image.MemoryImageSource;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 //timer for updatiting the clock
 import java.util.Timer;
@@ -489,19 +491,59 @@ public class MitJPanel extends javax.swing.JPanel
 
 
   private void btnKøbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKøbActionPerformed
-      if (billetAutomatKlasse.getBalance() < 2)
+      double balance = billetAutomatKlasse.getBalance();
+      double total = billetAutomatKlasse.getTotalPrice();
+      
+      int antalVoksen = (int) billetAutomatKlasse.VoksenBilletter.size();
+      int antalBarn = (int) billetAutomatKlasse.BørneBilletter.size();
+      int antalCykel = (int) billetAutomatKlasse.CykelBilletter.size();
+      
+      int antalTotal = antalVoksen + antalBarn + antalCykel;
+      
+      if (antalTotal == 0)
       {
+          SoundPlayer.play("Error.wav");
+          JFrame købsInfo = new JFrame();
+          JOptionPane.showMessageDialog(købsInfo,
+                  "Du skal først vælge mindst en billet"
+          );
+          return;
       }
+      
+      if (balance >= total && total != 0 )
+      {
+          double nyBalance = balance - total;
+          txtBalance.setText(String.valueOf(nyBalance));
+          billetAutomatKlasse.setBalance(nyBalance);
+          
+          JFrame købsInfo = new JFrame();
+          JOptionPane.showMessageDialog(købsInfo,
+                  "Du har købt følgende billet(ter)\n" +
+                  ((antalVoksen > 0) ? "Voksen billet: " + antalVoksen + " stk.": "") +
+                  ((antalBarn > 0) ? "Børne billet: " + antalBarn + " stk.": "") +
+                  ((antalCykel > 0) ? "Cykel billet: " + antalCykel + " stk.": "")
+          );
+          
+          JFrame fra = new JFrame();
+          JOptionPane.showMessageDialog(fra,
+                  "     ___      _____  \n"
+                  + "    |   _  )    |_     _| \n"
+                  + "    |   _ \\        |   |   \n"
+                  + "    |___/     _|_|_  \n"
+                  + "_|\"\"\"\"\"|_|\"\"\"\"\"| \n"
+                  + "\"`-0-0-'\"`-0-0-' \n"
+          );
+          
+          
 
-      JFrame fra = new JFrame();
-      JOptionPane.showMessageDialog(fra,
-              "     ___      _____  \n"
-              + "    |   _  )    |_     _| \n"
-              + "    |   _ \\        |   |   \n"
-              + "    |___/     _|_|_  \n"
-              + "_|\"\"\"\"\"|_|\"\"\"\"\"| \n"
-              + "\"`-0-0-'\"`-0-0-' \n"
-      );
+      }
+      else
+      {
+          SoundPlayer.play("Error.wav");
+          JFrame fra = new JFrame();
+          JOptionPane.showMessageDialog(fra, "Du skylder penge bruh!\n"
+                  + "Du mangler " + String.valueOf(total - balance) + " kr.");
+      }
 
       repaint();
   }//GEN-LAST:event_btnKøbActionPerformed
@@ -518,8 +560,8 @@ public class MitJPanel extends javax.swing.JPanel
 
     private void updateTotal()
     {
-        int antal = 0;
-        double pris = 0;
+        int antal;
+        double pris;
                 
         antal = billetAutomatKlasse.VoksenBilletter.size() +
                 billetAutomatKlasse.BørneBilletter.size() +
@@ -532,6 +574,8 @@ public class MitJPanel extends javax.swing.JPanel
         jTable1.setValueAt("Total", 3, 0);
         jTable1.setValueAt(antal, 3, 1);
         jTable1.setValueAt(pris, 3, 2);
+        
+        billetAutomatKlasse.setTotalPrice(pris);
     }
 
   private void btnVoksenMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoksenMinusActionPerformed
