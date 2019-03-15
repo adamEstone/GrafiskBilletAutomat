@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.time.*;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 
 /*
@@ -47,15 +49,30 @@ public class billetAutomatKlasse
     {
         return voksenPris;
     }
+    
+    private static void setAdultBalance(double pris)
+    {
+        voksenPris = pris;
+    }
 
     private static double getChildBalance()
     {
         return børnePris;
     }
+    
+    private static void setChildBalance(double pris)
+    {
+        børnePris = pris;
+    }
 
     private static double getBikeBalance()
     {
         return cykelPris;
+    }
+    
+    private static void setBikeBalance(double pris)
+    {
+        cykelPris = pris;
     }
     
     /**
@@ -83,6 +100,32 @@ public class billetAutomatKlasse
                 
         }
         return pris;
+    }
+    
+    
+    public static void setBilletpris(billetKlasse.ticketType type, double pris)
+    {
+        if (pris <= 0)
+        {
+            JFrame fra = new JFrame();
+            JOptionPane.showMessageDialog(fra,"Prisen skal være positiv.");
+            return;
+        }
+        switch(type)
+        {
+            case VOKSEN:
+                setAdultBalance(pris);
+                break;
+            case BARN:
+                setChildBalance(pris);
+                break;
+            case CYKEL:
+                setBikeBalance(pris);
+                break;
+            default:
+                break;
+                
+        }
     }
 
     /**
