@@ -311,23 +311,13 @@
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="3" rowCount="4">
                 <Column editable="false" title="Billet" type="java.lang.Object">
-                  <Data value="xc"/>
-                  <Data value="sdg7"/>
+                  <Data value=""/>
+                  <Data value=""/>
                   <Data value="null"/>
                   <Data value="null"/>
                 </Column>
-                <Column editable="false" title="Antal" type="java.lang.Integer">
-                  <Data value="24"/>
-                  <Data value="55"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="false" title="Samlet pris" type="java.lang.Double">
-                  <Data value="34.0"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                </Column>
+                <Column editable="false" title="Antal" type="java.lang.Integer"/>
+                <Column editable="false" title="Samlet pris" type="java.lang.Double"/>
               </Table>
             </Property>
             <Property name="autoscrolls" type="boolean" value="false"/>
@@ -364,7 +354,7 @@
     </Container>
     <Component class="javax.swing.JTextField" name="txtTotalPris">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Total pris: "/>
+        <Property name="text" type="java.lang.String" value="Total pris: 0"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTotalPrisActionPerformed"/>

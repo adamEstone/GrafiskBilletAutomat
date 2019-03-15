@@ -21,9 +21,9 @@ public class billetAutomatKlasse
 
     public static double totalPris;    // Prisen for én billet.
     
-    public static double voksenPris=20;    // Prisen for én billet.
-    public static double børnePris=15;    // Prisen for én billet.
-    public static double cykelPris=12.5;    // Prisen for én billet.
+    private static double voksenPris = 20;    // Prisen for én billet.
+    private static double børnePris = 15;    // Prisen for én billet.
+    private static double cykelPris = 12.5;    // Prisen for én billet.
     
     public static double balance; // Hvor mange penge kunden p.t. har puttet i automaten
     private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
@@ -34,13 +34,55 @@ public class billetAutomatKlasse
      * @param billetpris skal være større end nul (p.t. bliver det ikke tjekket)
      */
 
+    private static double getTotalBalance()
+    {
+        double adult = getAdultBalance();
+        double child = getChildBalance();
+        double bike = getBikeBalance();
+        
+        return adult + child + bike;
+    }
+
+    private static double getAdultBalance()
+    {
+        return voksenPris;
+    }
+
+    private static double getChildBalance()
+    {
+        return børnePris;
+    }
+
+    private static double getBikeBalance()
+    {
+        return cykelPris;
+    }
+    
     /**
      * Giver prisen for en billet.
      */
-    public double getBilletpris()
+    public static double getBilletpris(billetKlasse.ticketType type)
     {
-        double resultat = totalPris;
-        return resultat;
+        double pris = 0.0;
+        switch(type)
+        {
+            case VOKSEN:
+                pris = getAdultBalance();
+                break;
+            case BARN:
+                pris = getChildBalance();
+                break;
+            case CYKEL:
+                pris = getBikeBalance();
+                break;
+            case TOTAL:
+                pris = getTotalBalance();
+                break;
+            default:
+                break;
+                
+        }
+        return pris;
     }
 
     /**

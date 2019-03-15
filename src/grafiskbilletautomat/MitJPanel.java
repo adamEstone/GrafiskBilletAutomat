@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 
 /**
@@ -72,13 +73,15 @@ public class MitJPanel extends javax.swing.JPanel {
         
     }
     
-    private void updateVisualPrices(){
-    
-    //update prices
-         lblVoksenPris.setText(String.valueOf(billetAutomatKlasse.voksenPris)+ " kr.");
-         lblBarnPris.setText(String.valueOf(billetAutomatKlasse.børnePris)+ " kr.");
-         lblCykelPris.setText(String.valueOf(billetAutomatKlasse.cykelPris)+ " kr.");
-    
+    private void updateVisualPrices()
+    {
+        //update prices
+        lblVoksenPris.setText(String.valueOf(billetAutomatKlasse.getBilletpris(
+                billetKlasse.ticketType.VOKSEN) + " kr."));
+        lblBarnPris.setText(String.valueOf(billetAutomatKlasse.getBilletpris(
+                billetKlasse.ticketType.BARN) + " kr."));
+        lblCykelPris.setText(String.valueOf(billetAutomatKlasse.getBilletpris(
+                billetKlasse.ticketType.CYKEL) + " kr."));
     }
 
     //settings for the coin slot
@@ -283,8 +286,8 @@ public class MitJPanel extends javax.swing.JPanel {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
-                {"xc",  new Integer(24),  new Double(34.0)},
-                {"sdg7",  new Integer(55), null},
+                {"", null, null},
+                {"", null, null},
                 {null, null, null},
                 {null, null, null}
             },
@@ -325,7 +328,7 @@ public class MitJPanel extends javax.swing.JPanel {
             jTable1.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        txtTotalPris.setText("Total pris: ");
+        txtTotalPris.setText("Total pris: 0");
         txtTotalPris.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -518,19 +521,31 @@ public class MitJPanel extends javax.swing.JPanel {
     public int counter = 0;
 
   private void btnVoksenMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoksenMinusActionPerformed
-      // TODO add your handling code here:
-
+      final int column = 0;
       if (billetAutomatKlasse.VoksenBillet.size() > 0) {
-          billetKlasse VoksenBillet = new billetKlasse(billetKlasse.ticketType.VOKSEN, 5, "");
-          billetAutomatKlasse.VoksenBillet.remove(0);
+            
+            billetAutomatKlasse.VoksenBillet.remove(0);
+        }
+
+        if (billetAutomatKlasse.VoksenBillet.isEmpty()) {
+            btnVoksenMinus.setEnabled(false);
+          // nulstiller rækken
+           for (int i = 0; i < jTable1.getColumnCount(); i++)
+          {
+              jTable1.setValueAt(null, column, i);
+          }
       }
-
-      if (billetAutomatKlasse.VoksenBillet.isEmpty()) {
-          btnVoksenMinus.setEnabled(false);
-
+      else
+      {
+        // sætter antal
+        jTable1.setValueAt(billetAutomatKlasse.VoksenBillet.size(), column, 1);
+        
+        // regner summen ud
+        //TODO: muligvis dette skal hentes fra et sted fra?
+        double pris = (int)jTable1.getValueAt(column, 1) * 
+                    billetAutomatKlasse.getBilletpris(billetKlasse.ticketType.VOKSEN);
+        jTable1.setValueAt(pris, column, 2);
       }
-
-
   }//GEN-LAST:event_btnVoksenMinusActionPerformed
 
   private void MusTrykkeIJframe(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MusTrykkeIJframe
@@ -611,21 +626,50 @@ public class MitJPanel extends javax.swing.JPanel {
 
 
   private void btnBarnPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBarnPlusActionPerformed
+        final int column = 1;
         btnBarnMinus.setEnabled(true);
         billetKlasse BørneBillet = new billetKlasse(billetKlasse.ticketType.BARN, 5, "");
         billetAutomatKlasse.BørneBillet.add(BørneBillet);
+
+        //TODO: muligvis skal teksten hentes et sted fra?
+        jTable1.setValueAt("Barn", column, 0);
+
+        // sætter antal
+        jTable1.setValueAt(billetAutomatKlasse.BørneBillet.size(), column, 1);
+
+        // regner summen ud
+        //TODO: muligvis dette skal hentes fra et sted af?
+        double pris = (int) jTable1.getValueAt(column, 1)
+                * billetAutomatKlasse.getBilletpris(billetKlasse.ticketType.BARN);
+        jTable1.setValueAt(pris, column, 2); 
   }//GEN-LAST:event_btnBarnPlusActionPerformed
 
   private void btnCykelMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCykelMinusActionPerformed
-       if (billetAutomatKlasse.CykelBillet.size() > 0) {
+      final int column = 2;
+      if (billetAutomatKlasse.CykelBillet.size() > 0) {
             
             billetAutomatKlasse.CykelBillet.remove(0);
         }
 
         if (billetAutomatKlasse.CykelBillet.isEmpty()) {
             btnCykelMinus.setEnabled(false);
-
-        }      // TODO add your handling code here:
+          // nulstiller rækken
+           for (int i = 0; i < jTable1.getColumnCount(); i++)
+          {
+              jTable1.setValueAt(null, column, i);
+          }
+      }
+      else
+      {
+        // sætter antal
+        jTable1.setValueAt(billetAutomatKlasse.CykelBillet.size(), column, 1);
+        
+        // regner summen ud
+        //TODO: muligvis dette skal hentes fra et sted fra?
+        double pris = (int)jTable1.getValueAt(column, 1) * 
+                    billetAutomatKlasse.getBilletpris(billetKlasse.ticketType.CYKEL);
+        jTable1.setValueAt(pris, column, 2);
+      }
   }//GEN-LAST:event_btnCykelMinusActionPerformed
 
   private void txtBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBalanceActionPerformed
@@ -656,32 +700,88 @@ public class MitJPanel extends javax.swing.JPanel {
   }//GEN-LAST:event_AdminMenu
 
   private void btnSletAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSletAltActionPerformed
-      // TODO add your handling code here:
+      btnVoksenMinus.setEnabled(false);
+      btnBarnMinus.setEnabled(false);
+      btnCykelMinus.setEnabled(false);
+      
+      billetAutomatKlasse.VoksenBillet.removeAll(billetAutomatKlasse.VoksenBillet);
+      billetAutomatKlasse.BørneBillet.removeAll(billetAutomatKlasse.BørneBillet);
+      billetAutomatKlasse.CykelBillet.removeAll(billetAutomatKlasse.CykelBillet);
+      
+      txtTotalPris.setText("Total pris: 0");
+      
+      for (int i = 0; i < jTable1.getRowCount(); i++)
+      {
+          for (int j = 0; j < jTable1.getColumnCount(); j++)
+          {
+              jTable1.setValueAt(null, i, j);
+          }
+      }
   }//GEN-LAST:event_btnSletAltActionPerformed
 
     private void btnVoksenPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoksenPlusActionPerformed
         btnVoksenMinus.setEnabled(true);
         billetKlasse VoksenBillet = new billetKlasse(billetKlasse.ticketType.VOKSEN, 5, "");
         billetAutomatKlasse.VoksenBillet.add(VoksenBillet);
+
+        //TODO: muligvis skal teksten hentes et sted fra?
+        jTable1.setValueAt("Voksen", 0, 0);
+
+        // sætter antal
+        jTable1.setValueAt(billetAutomatKlasse.VoksenBillet.size(), 0, 1);
+
+        // regner summen ud
+        //TODO: muligvis dette skal hentes fra et sted af?
+        double pris = (int) jTable1.getValueAt(0, 1)
+                * billetAutomatKlasse.getBilletpris(billetKlasse.ticketType.VOKSEN);
+        jTable1.setValueAt(pris, 0, 2);
     }//GEN-LAST:event_btnVoksenPlusActionPerformed
 
     private void btnBarnMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBarnMinusActionPerformed
-
-        if (billetAutomatKlasse.BørneBillet.size() > 0) {
+      final int column = 1;
+      if (billetAutomatKlasse.BørneBillet.size() > 0) {
             
             billetAutomatKlasse.BørneBillet.remove(0);
         }
 
         if (billetAutomatKlasse.BørneBillet.isEmpty()) {
             btnBarnMinus.setEnabled(false);
-
-        }        
+          // nulstiller rækken
+           for (int i = 0; i < jTable1.getColumnCount(); i++)
+          {
+              jTable1.setValueAt(null, column, i);
+          }
+      }
+      else
+      {
+        // sætter antal
+        jTable1.setValueAt(billetAutomatKlasse.BørneBillet.size(), column, 1);
+        
+        // regner summen ud
+        //TODO: muligvis dette skal hentes fra et sted fra?
+        double pris = (int)jTable1.getValueAt(column, 1) * 
+                    billetAutomatKlasse.getBilletpris(billetKlasse.ticketType.BARN);
+        jTable1.setValueAt(pris, column, 2);
+      }       
     }//GEN-LAST:event_btnBarnMinusActionPerformed
 
     private void btnCykelPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCykelPlusActionPerformed
+        final int column = 2;
         btnCykelMinus.setEnabled(true);
         billetKlasse CykelBillet = new billetKlasse(billetKlasse.ticketType.CYKEL, 5, "");
         billetAutomatKlasse.CykelBillet.add(CykelBillet);
+
+        //TODO: muligvis skal teksten hentes et sted fra?
+        jTable1.setValueAt("Cykel", column, 0);
+
+        // sætter antal
+        jTable1.setValueAt(billetAutomatKlasse.CykelBillet.size(), column, 1);
+
+        // regner summen ud
+        //TODO: muligvis dette skal hentes fra et sted af?
+        double pris = (int) jTable1.getValueAt(column, 1)
+                * billetAutomatKlasse.getBilletpris(billetKlasse.ticketType.CYKEL);
+        jTable1.setValueAt(pris, column, 2);
     }//GEN-LAST:event_btnCykelPlusActionPerformed
 
     private void FocusGainedAndUpdatePrices(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_FocusGainedAndUpdatePrices
