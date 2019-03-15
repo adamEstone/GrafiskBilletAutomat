@@ -541,9 +541,6 @@ public class MitJPanel extends javax.swing.JPanel
                 billetAutomatKlasse.getChildTotal() +
                 billetAutomatKlasse.getBikeTotal();
 
-        System.out.println(pris);
-        System.out.println(antal);
-        
         jTable1.setValueAt("Total", 3, 0);
         jTable1.setValueAt(antal, 3, 1);
         jTable1.setValueAt(pris, 3, 2);
