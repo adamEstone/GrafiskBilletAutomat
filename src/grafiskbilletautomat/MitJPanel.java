@@ -86,6 +86,7 @@ public class MitJPanel extends javax.swing.JPanel
                 billetKlasse.ticketType.BARN) + " kr."));
         lblCykelPris.setText(String.valueOf(billetAutomatKlasse.getBilletpris(
                 billetKlasse.ticketType.CYKEL) + " kr."));
+        txtBalance.setText(String.valueOf(billetAutomatKlasse.getBalance()));
     }
 
     //settings for the coin slot
@@ -521,8 +522,11 @@ public class MitJPanel extends javax.swing.JPanel
                   "Du har købt følgende billet(ter)\n" +
                   ((antalVoksen > 0) ? "Voksen billet: " + antalVoksen + " stk.": "") +
                   ((antalBarn > 0) ? "Børne billet: " + antalBarn + " stk.": "") +
-                  ((antalCykel > 0) ? "Cykel billet: " + antalCykel + " stk.": "")
+                  ((antalCykel > 0) ? "Cykel billet: " + antalCykel + " stk.": "") +
+                  "\n Du får " + nyBalance + " kr. tilbage."        
           );
+          billetAutomatKlasse.setBalance(0);
+          txtBalance.setText(String.valueOf(billetAutomatKlasse.getBalance()));
           
           for (int i = 0; i < antalVoksen; i++) {
 
@@ -626,7 +630,7 @@ _|"""""|_|"""""|
 
     public int counter = 0;
 
-    private void updateTotal()
+    public void updateTotal()
     {
         int antal;
         double pris;

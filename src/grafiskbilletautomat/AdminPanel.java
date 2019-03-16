@@ -19,6 +19,7 @@ public class AdminPanel extends javax.swing.JPanel {
         lblVoksenPris.setText(String.valueOf(billetAutomatKlasse.getBilletpris(billetKlasse.ticketType.VOKSEN)));
         lblBørnePris.setText(String.valueOf(billetAutomatKlasse.getBilletpris(billetKlasse.ticketType.BARN)));
         lblCykelPris.setText(String.valueOf(billetAutomatKlasse.getBilletpris(billetKlasse.ticketType.CYKEL)));
+        balance.setText(String.valueOf(billetAutomatKlasse.getBalance()));
     }
 
     /**
@@ -28,8 +29,7 @@ public class AdminPanel extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
@@ -49,12 +49,14 @@ public class AdminPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        IncBalance = new javax.swing.JButton();
+        clearBalance = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        balance = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vis alt", "Byttepenge", "Byttepenge over 500kr", "Beløb", "Annullerede Billetter", "Tid", "Dato", "Voksen Billet", "Børne Billet", "Cykel Billet" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
@@ -73,60 +75,48 @@ public class AdminPanel extends javax.swing.JPanel {
 
         btnVoksenOp.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnVoksenOp.setText("↑");
-        btnVoksenOp.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnVoksenOp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoksenOpActionPerformed(evt);
             }
         });
 
         btnVoksenNed.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnVoksenNed.setText("↓");
-        btnVoksenNed.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnVoksenNed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoksenNedActionPerformed(evt);
             }
         });
 
         btnBarnOp.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnBarnOp.setText("↑");
-        btnBarnOp.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnBarnOp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBarnOpActionPerformed(evt);
             }
         });
 
         btnCykelNed.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnCykelNed.setText("↓");
-        btnCykelNed.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnCykelNed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCykelNedActionPerformed(evt);
             }
         });
 
         btnBarnNed.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnBarnNed.setText("↓");
-        btnBarnNed.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnBarnNed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBarnNedActionPerformed(evt);
             }
         });
 
         btnCykelOp.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnCykelOp.setText("↑");
-        btnCykelOp.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnCykelOp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCykelOpActionPerformed(evt);
             }
         });
@@ -143,28 +133,39 @@ public class AdminPanel extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Voksen Billet");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>()
-        {
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9", "Item 10" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jList1);
 
+        IncBalance.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        IncBalance.setText("↑");
+        IncBalance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IncBalanceActionPerformed(evt);
+            }
+        });
+
+        clearBalance.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        clearBalance.setText("clr");
+        clearBalance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearBalanceActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setText("Balance: ");
+
+        balance.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        balance.setText("0");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, 0, 232, Short.MAX_VALUE)))
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,6 +193,28 @@ public class AdminPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(IncBalance)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(clearBalance)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(balance)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBox1, 0, 232, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,10 +233,11 @@ public class AdminPanel extends javax.swing.JPanel {
                         .addComponent(btnVoksenOp)
                         .addComponent(btnBarnOp)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblVoksenPris)
-                    .addComponent(lblBørnePris)
-                    .addComponent(lblCykelPris))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblVoksenPris, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblBørnePris)
+                        .addComponent(lblCykelPris)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBarnNed)
@@ -226,8 +250,14 @@ public class AdminPanel extends javax.swing.JPanel {
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(IncBalance)
+                    .addComponent(clearBalance)
+                    .addComponent(jLabel9)
+                    .addComponent(balance))
+                .addGap(10, 10, 10))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -288,20 +318,38 @@ public class AdminPanel extends javax.swing.JPanel {
         lblCykelPris.setText(String.valueOf(billetAutomatKlasse.getBilletpris(billetKlasse.ticketType.CYKEL)));
     }//GEN-LAST:event_btnCykelOpActionPerformed
 
+    private void clearBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBalanceActionPerformed
+              
+        billetAutomatKlasse.setBalance(0);
+
+    }//GEN-LAST:event_clearBalanceActionPerformed
+
+    private void IncBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IncBalanceActionPerformed
+
+        billetAutomatKlasse.setBalance(billetAutomatKlasse.getBalance() + 5);
+        balance.setText(String.valueOf(billetAutomatKlasse.getBalance()));      
+
+  
+    }//GEN-LAST:event_IncBalanceActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton IncBalance;
+    private javax.swing.JLabel balance;
     private javax.swing.JButton btnBarnNed;
     private javax.swing.JButton btnBarnOp;
     private javax.swing.JButton btnCykelNed;
     private javax.swing.JButton btnCykelOp;
     private javax.swing.JButton btnVoksenNed;
     private javax.swing.JButton btnVoksenOp;
+    private javax.swing.JButton clearBalance;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
