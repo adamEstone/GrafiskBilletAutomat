@@ -247,7 +247,7 @@ public class AdminPanel extends javax.swing.JPanel {
   }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void btnVoksenOpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoksenOpActionPerformed
-        double pris = billetAutomatKlasse.getBilletpris(billetKlasse.ticketType.VOKSEN);
+            double pris = billetAutomatKlasse.getBilletpris(billetKlasse.ticketType.VOKSEN);
         billetAutomatKlasse.setBilletpris(billetKlasse.ticketType.VOKSEN, pris + 0.5);
         
         lblVoksenPris.setText(String.valueOf(billetAutomatKlasse.getBilletpris(billetKlasse.ticketType.VOKSEN)));

@@ -524,15 +524,83 @@ public class MitJPanel extends javax.swing.JPanel
                   ((antalCykel > 0) ? "Cykel billet: " + antalCykel + " stk.": "")
           );
           
+          for (int i = 0; i < antalVoksen; i++) {
+
+              String temp = String.valueOf(billetAutomatKlasse.getBilletpris(
+                billetKlasse.ticketType.VOKSEN));
+              
           JFrame fra = new JFrame();
           JOptionPane.showMessageDialog(fra,
-                  "     ___      _____  \n"
-                  + "    |   _  )    |_     _| \n"
-                  + "    |   _ \\        |   |   \n"
-                  + "    |___/     _|_|_  \n"
-                  + "_|\"\"\"\"\"|_|\"\"\"\"\"| \n"
-                  + "\"`-0-0-'\"`-0-0-' \n"
+                     "        " + billetAutomatKlasse.getDate() + "    \n"
+                  + "         " + billetAutomatKlasse.getTime() + "    \n"  
+                  + "       ___       _____  \n"
+                  + "      |   _  )    |_     _| \n"
+                  + "      |   _ \\        |  |   \n"
+                  + "      |___/      _|_|_  \n"
+                  + "    _|\"\"\"\"\"|_|\"\"\"\"\"| \n"
+                  + "    \"`-0-0-'\"`-0-0-' \n"
+                  + "Voksenbillet " + temp + " kr.\n"
+                  + "   Gælder i 8 timer.\n"
           );
+              
+                
+          }
+          
+                    for (int i = 0; i < antalBarn; i++) {
+
+              String temp = String.valueOf(billetAutomatKlasse.getBilletpris(
+                billetKlasse.ticketType.BARN));
+              
+          JFrame fra = new JFrame();
+          JOptionPane.showMessageDialog(fra,
+                     "        " + billetAutomatKlasse.getDate() + "    \n"
+                  + "         " + billetAutomatKlasse.getTime() + "    \n"  
+                  + "       ___       _____  \n"
+                  + "      |   _  )    |_     _| \n"
+                  + "      |   _ \\        |  |   \n"
+                  + "      |___/      _|_|_  \n"
+                  + "    _|\"\"\"\"\"|_|\"\"\"\"\"| \n"
+                  + "    \"`-0-0-'\"`-0-0-' \n"
+                  + "Barnebillet " + temp + " kr.\n"
+                  + "   Gælder i 8 timer.\n"
+          );
+              
+                
+          }
+                    
+                   for (int i = 0; i < antalCykel; i++) {
+
+              String temp = String.valueOf(billetAutomatKlasse.getBilletpris(
+                billetKlasse.ticketType.CYKEL));
+              
+          JFrame fra = new JFrame();
+          JOptionPane.showMessageDialog(fra,
+                     "        " + billetAutomatKlasse.getDate() + "    \n"
+                  + "         " + billetAutomatKlasse.getTime() + "    \n"  
+                  + "       ___       _____  \n"
+                  + "      |   _  )    |_     _| \n"
+                  + "      |   _ \\        |  |   \n"
+                  + "      |___/      _|_|_  \n"
+                  + "    _|\"\"\"\"\"|_|\"\"\"\"\"| \n"
+                  + "    \"`-0-0-'\"`-0-0-' \n"
+                  + "Cykelbillet " + temp + " kr.\n"
+                  + "   Gælder i 8 timer.\n"
+          );
+              
+                
+          }
+          
+
+
+          
+          /*
+  ___    _____  
+  | _ )  |_   _| 
+  | _ \    | |   
+  |___/   _|_|_  
+_|"""""|_|"""""| 
+"`-0-0-'"`-0-0-' 
+          */
           
           
 
