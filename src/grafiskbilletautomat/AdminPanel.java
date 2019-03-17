@@ -20,6 +20,7 @@ public class AdminPanel extends javax.swing.JPanel {
         lblBørnePris.setText(String.valueOf(billetAutomatKlasse.getBilletpris(billetKlasse.ticketType.BARN)));
         lblCykelPris.setText(String.valueOf(billetAutomatKlasse.getBilletpris(billetKlasse.ticketType.CYKEL)));
         balance.setText(String.valueOf(billetAutomatKlasse.getBalance()));
+        totSale.setText(String.valueOf(billetAutomatKlasse.getTotSale()));
     }
 
     /**
@@ -53,6 +54,8 @@ public class AdminPanel extends javax.swing.JPanel {
         clearBalance = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         balance = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        totSale = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vis alt", "Byttepenge", "Byttepenge over 500kr", "Beløb", "Annullerede Billetter", "Tid", "Dato", "Voksen Billet", "Børne Billet", "Cykel Billet" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -162,6 +165,12 @@ public class AdminPanel extends javax.swing.JPanel {
         balance.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         balance.setText("0");
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel10.setText("Total salg:");
+
+        totSale.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        totSale.setText("0");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -197,6 +206,15 @@ public class AdminPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBox1, 0, 232, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(IncBalance)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -205,16 +223,11 @@ public class AdminPanel extends javax.swing.JPanel {
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(balance)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBox1, 0, 232, Short.MAX_VALUE)))
-                        .addContainerGap())))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(totSale)
+                        .addGap(28, 28, 28))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,7 +269,9 @@ public class AdminPanel extends javax.swing.JPanel {
                     .addComponent(IncBalance)
                     .addComponent(clearBalance)
                     .addComponent(jLabel9)
-                    .addComponent(balance))
+                    .addComponent(balance)
+                    .addComponent(jLabel10)
+                    .addComponent(totSale))
                 .addGap(10, 10, 10))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -345,6 +360,7 @@ public class AdminPanel extends javax.swing.JPanel {
     private javax.swing.JButton clearBalance;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -356,5 +372,6 @@ public class AdminPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblBørnePris;
     private javax.swing.JLabel lblCykelPris;
     private javax.swing.JLabel lblVoksenPris;
+    private javax.swing.JLabel totSale;
     // End of variables declaration//GEN-END:variables
 }

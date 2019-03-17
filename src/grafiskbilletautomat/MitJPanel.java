@@ -41,6 +41,7 @@ public class MitJPanel extends javax.swing.JPanel
 
     private int mouseXpos;
     private int mouseYpos;
+    
 
     public static ArrayList<Coin> allCoins = new ArrayList<>();
 
@@ -515,7 +516,9 @@ public class MitJPanel extends javax.swing.JPanel
       {
           double nyBalance = balance - total;
           txtBalance.setText(String.valueOf(nyBalance));
-          billetAutomatKlasse.setBalance(nyBalance);
+          //billetAutomatKlasse.setBalance(nyBalance);
+          
+          billetAutomatKlasse.setTotSale(total);
           
           JFrame købsInfo = new JFrame();
           JOptionPane.showMessageDialog(købsInfo,

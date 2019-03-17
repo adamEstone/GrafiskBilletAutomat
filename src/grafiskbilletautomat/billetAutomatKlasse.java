@@ -28,6 +28,8 @@ public class billetAutomatKlasse
     private static double børnePris = 15;    // Prisen for én billet.
     private static double cykelPris = 12.5;    // Prisen for én billet.
     
+    private static double totalSale = 0;
+    
     private static double balance; // Hvor mange penge kunden p.t. har puttet i automaten
 
     private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
@@ -144,6 +146,17 @@ public class billetAutomatKlasse
     {
         return CykelBilletter.size() * getBikePrice();
     }
+    
+        public static void setTotalPrice(double price)
+    {
+        totalPris = price;
+    }
+    
+    public static double getTotalPrice()
+    {
+        return totalPris;
+    }
+
 
     /**
      * Modtag nogle penge (i kroner) fra en kunde.
@@ -158,10 +171,21 @@ public class billetAutomatKlasse
     /**
      * Giver balancen (beløbet maskinen har modtaget til den næste billet).
      */
+    
+        public static double getTotSale(){
+        return totalSale;
+    }
+
+    public static void setTotSale(double tot){
+        totalSale += tot;
+    }
+    
+    
     public static double getBalance()
     {
         return balance;
     }
+    
     
     public static void setBalance(double bal)
     {
@@ -175,16 +199,6 @@ public class billetAutomatKlasse
         balance = bal;
     }
     
-    public static void setTotalPrice(double price)
-    {
-        totalPris = price;
-    }
-    
-    public static double getTotalPrice()
-    {
-        return totalPris;
-    }
-
     /**
      * Udskriv en billet.
      */
