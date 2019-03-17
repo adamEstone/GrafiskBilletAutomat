@@ -321,7 +321,7 @@ public class AdminPanel extends javax.swing.JPanel {
     private void clearBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBalanceActionPerformed
               
         billetAutomatKlasse.setBalance(0);
-
+        balance.setText(String.valueOf(billetAutomatKlasse.getBalance()));  
     }//GEN-LAST:event_clearBalanceActionPerformed
 
     private void IncBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IncBalanceActionPerformed
