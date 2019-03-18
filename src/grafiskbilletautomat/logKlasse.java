@@ -15,31 +15,31 @@ public class logKlasse
     //Handling er en streng + tidspunkt
     //Transaktion er beløb + tidspunkt
     
-    
-    logKlasse()
+    public static void logHandling(LogElement element) throws Exception
     {
-         
-    }
-    
-    public static void logHandling(String theString)throws Exception{
         String file = "Historik.log";
-        
-    		ArrayList<String> l;
-		
-		try {
-			l = (ArrayList<String>) Serialisering.hent(file);
-			System.out.println("Læst: "+l);
-		} catch (Exception e) {
-			l = new ArrayList();
-			System.out.println("Oprettet: "+l);
-		}
 
-		l.add("Ven"+l.size());
-		Serialisering.gem(l,file);
-		System.out.println("Gemt: "+l);
-	}
-    
+        ArrayList<LogElement> l;
+
+        try
+        {
+            l = (ArrayList<LogElement>) Serialisering.hent(file);
+            System.out.println("Læst: " + l);
+        } 
+        catch (Exception e)
+        {
+            l = new ArrayList();
+            System.out.println("Oprettet: " + l);
+            e.printStackTrace();
+        }
+
+        //l.add("Ven" + l.size());
+        l.add(element);
+        Serialisering.gem(l, file);
+        System.out.println("Gemt: " + l);
     }
+
+}
     
 
     

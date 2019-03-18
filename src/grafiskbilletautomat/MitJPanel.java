@@ -17,6 +17,8 @@ import java.util.Set;
 //timer for updatiting the clock
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -792,6 +794,7 @@ _|"""""|_|"""""|
       }
 
       updateTotal();
+      LogElement.log(LogElement.TypeID.HANDLING, "Cykel knap minus");
   }//GEN-LAST:event_btnCykelMinusActionPerformed
 
   private void txtBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBalanceActionPerformed
