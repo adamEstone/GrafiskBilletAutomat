@@ -502,8 +502,11 @@ public class MitJPanel extends javax.swing.JPanel {
           return;
       }
 
-      if (balance >= total && total != 0) {
+      if (balance >= total ) { //rettet fjernelse af: && total != 0
+         
           double nyBalance = balance - total;
+          
+          
           txtBalance.setText(String.valueOf(nyBalance));
           //billetAutomatKlasse.setBalance(nyBalance);
 
